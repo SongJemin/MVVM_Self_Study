@@ -17,21 +17,21 @@ public class MainActivity extends AppCompatActivity {
 
         final CounterViewModel viewModel = ViewModelProviders.of(this).get(CounterViewModel.class);
 
-        binding.mainCountTv.setText(viewModel.counter + "");
+        binding.mainCountTv.setText(viewModel.counter.getValue() + "");
 
         binding.mainAddFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewModel.counter++;
-                binding.mainCountTv.setText(viewModel.counter + "");
+                viewModel.increase();
+                binding.mainCountTv.setText(viewModel.counter.getValue() + "");
             }
         });
 
         binding.mainRemoveFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                viewModel.counter--;
-                binding.mainCountTv.setText(viewModel.counter + "");
+                viewModel.decrease();
+                binding.mainCountTv.setText(viewModel.counter.getValue() + "");
             }
         });
     }
